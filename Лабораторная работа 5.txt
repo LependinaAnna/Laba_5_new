@@ -1,0 +1,103 @@
+#define _CRT_SECURE_NO_DEPRECATE
+#define _USE_MATH_DEFINES 
+#include <locale.h>
+#include <stdio.h>
+#include <math.h>
+#define M_PI 3.14159265358979323846
+int z_1();
+int z_2();
+int z_3();
+int homework();
+
+int main()
+{
+    setlocale(LC_ALL, "RUS");
+    z_1();
+    z_2();
+    z_3();
+    homework();
+    return 0;
+}
+
+int z_1()
+{
+    double gr;
+    double agl;
+    puts("Введите угол в градусах");
+    scanf("%lf", &gr);
+    agl = sin(gr * M_PI / 180);
+    printf("sin(%.0f град) = %.6f\n\n", gr, agl);
+    return 0;
+}
+
+int z_2()
+{
+    double x;
+    double b;
+    double a;
+    double y;
+    double k = 8.2;
+    puts("Введите число");
+    scanf("%lf", &x);
+    printf("x = %.0f\n", x);
+    b = sqrt(fabs(x));
+    a = pow(b, 4) + pow(k, 3);
+    y = pow(log(a), 3) + exp(-x);
+    printf("%.6f\n\n", y);
+    return 0;
+}
+
+int z_3()
+{
+    double x;
+    double b;
+    double a;
+    double y;
+    double k = 8.2;
+    int A;
+    int B;
+    int C;
+    int uslovie_1;
+    int uslovie_2;
+    puts("Введите число");
+    scanf("%lf", &x);
+    printf("x = %.0f\n", x);
+    b = sqrt(fabs(x));
+    a = pow(b, 4) + pow(k, 3);
+    y = pow(log(a), 3) + exp(-x);
+    A = (int)a;
+    B = (int)a;
+    C = (int)y;
+    uslovie_1 = (A % 2 == 0) != (B % 2 == 0);
+    uslovie_2 = (A % 3 == 0) && (B % 3 == 0) && (C % 3 == 0);
+    printf("Только одно из чисел A и B четное, условие выполнено (1 - да, 0 - нет): %d\n", uslovie_1);
+    printf("Каждое из чисел A, B и C кратно трем, условие выполнено (1 - да, 0 - нет): %d\n", uslovie_2);
+    return 0;
+}
+
+int homework()
+{
+    double x;
+    double y;
+    double z;
+    double w;
+    double res;
+    double res_1;
+    double res_2;
+    double res_3;
+    puts("Введите число");
+    scanf("%lf", &x);
+    printf("x = %lf\n", x);
+    puts("Введите число");
+    scanf("%lf", &y);
+    printf("y = %lf\n", y);
+    puts("Введите число");
+    scanf("%lf", &z);
+    printf("z = %lf\n", z);
+    res_1 = atan(x) + atan(z);
+    res_2 = exp(fabs(x - y)) * pow(fabs(x - y), x + y);
+    res_3 = pow((pow(x, 6) + pow(log(y), 2)), 1./3);
+    res = res_3 + (res_2 / res_1);
+    printf("%f", res);
+    return 0;
+}
